@@ -8,7 +8,7 @@ use App\Models\Transaction;
 
 class TransactionController extends Controller
 {
-    // GET ALL TRANSACTIONS
+    // TRANSACTION
     public function index(Request $request)
     {
         $transactions = Transaction::where('user_id', $request->user()->id)
@@ -21,7 +21,7 @@ class TransactionController extends Controller
         ]);
     }
 
-    // CREATE TRANSACTION
+    // CREATE
     public function store(Request $request)
     {
         $request->validate([
@@ -46,7 +46,7 @@ class TransactionController extends Controller
         ], 201);
     }
 
-    // GET SINGLE TRANSACTION
+    // READ satu data aja
     public function show(Request $request, $id)
     {
         $transaction = Transaction::where('user_id', $request->user()->id)
@@ -63,7 +63,7 @@ class TransactionController extends Controller
         ]);
     }
 
-    // UPDATE TRANSACTION
+    // UPDATE
     public function update(Request $request, $id)
     {
         $transaction = Transaction::where('user_id', $request->user()->id)
@@ -96,7 +96,7 @@ class TransactionController extends Controller
         ]);
     }
 
-    // DELETE TRANSACTION
+    // DELETE
     public function destroy(Request $request, $id)
     {
         $transaction = Transaction::where('user_id', $request->user()->id)
